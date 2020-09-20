@@ -13,6 +13,7 @@
 		A93658852516F93300402DA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93658842516F93300402DA5 /* Preview Assets.xcassets */; };
 		A93658902516F93300402DA5 /* DNS_ConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A936588F2516F93300402DA5 /* DNS_ConfiguratorTests.swift */; };
 		A936589B2516F93300402DA5 /* DNS_ConfiguratorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A936589A2516F93300402DA5 /* DNS_ConfiguratorUITests.swift */; };
+		A93658AE2516F96600402DA5 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93658AD2516F96600402DA5 /* NetworkExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		A93658962516F93300402DA5 /* DNS ConfiguratorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DNS ConfiguratorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A936589A2516F93300402DA5 /* DNS_ConfiguratorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNS_ConfiguratorUITests.swift; sourceTree = "<group>"; };
 		A936589C2516F93300402DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A93658AB2516F96600402DA5 /* DNS Configurator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DNS Configurator.entitlements"; sourceTree = "<group>"; };
+		A93658AD2516F96600402DA5 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A93658AE2516F96600402DA5 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +83,7 @@
 				A936588E2516F93300402DA5 /* DNS ConfiguratorTests */,
 				A93658992516F93300402DA5 /* DNS ConfiguratorUITests */,
 				A936587B2516F93100402DA5 /* Products */,
+				A93658AC2516F96600402DA5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +100,7 @@
 		A936587C2516F93100402DA5 /* DNS Configurator */ = {
 			isa = PBXGroup;
 			children = (
+				A93658AB2516F96600402DA5 /* DNS Configurator.entitlements */,
 				A936587D2516F93100402DA5 /* DNS_ConfiguratorApp.swift */,
 				A936587F2516F93100402DA5 /* ContentView.swift */,
 				A93658812516F93300402DA5 /* Assets.xcassets */,
@@ -128,6 +134,14 @@
 				A936589C2516F93300402DA5 /* Info.plist */,
 			);
 			path = "DNS ConfiguratorUITests";
+			sourceTree = "<group>";
+		};
+		A93658AC2516F96600402DA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A93658AD2516F96600402DA5 /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,6 +431,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "DNS Configurator/DNS Configurator.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DNS Configurator/Preview Content\"";
 				DEVELOPMENT_TEAM = 788YH48Y3Q;
@@ -439,6 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "DNS Configurator/DNS Configurator.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DNS Configurator/Preview Content\"";
 				DEVELOPMENT_TEAM = 788YH48Y3Q;
