@@ -9,35 +9,75 @@ import SwiftUI
 import NetworkExtension
 
 struct ContentView: View {
+    @State private var configurations: Array<DoHConfig> = [
+        DoHConfig(servers: [ "1.1.1.1", "1.0.0.1", "2606:4700:4700::1111", "2606:4700:4700::1001" ], serverURL: "https://cloudflare-dns.com/dns-query", displayText: "Cloudflare DNS"),
+        DoHConfig(servers:  [ "8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844" ], serverURL: "https://dns.google/dns-query", displayText: "Google Public DNS"),
+    ]
+    @State private var currentConfig: DoHConfig?
+    @State private var selectedConfig: DoHConfig?
+
+    
     var body: some View {
-        VStack{
-            Text("Hello, world!")
-                .padding()
-            Button(action: {
-                print("hello!!")
-                NEDNSSettingsManager.shared().loadFromPreferences { loadError in
-                    if let loadError = loadError {
-                        
-                        return
-                    }
-//                    let dohSettings = NEDNSOverHTTPSSettings(servers: [ "8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844" ])
-//                    dohSettings.serverURL = URL(string: "https://dns.google/dns-query")
-                    
-                    let dohSettings = NEDNSOverHTTPSSettings(servers: [ "1.1.1.1", "1.0.0.1", "2606:4700:4700::1111", "2606:4700:4700::1001" ])
-                    dohSettings.serverURL = URL(string: "https://cloudflare-dns.com/dns-query")
-                    
-                    NEDNSSettingsManager.shared().dnsSettings = dohSettings
-                    NEDNSSettingsManager.shared().saveToPreferences { saveError in
-                        if let saveError = saveError {
-                            
-                            return
+        NavigationView {
+            VStack{
+                List(self.configurations, id: \.servers) { config in
+                    NavigationLink(destination: DoHConfigView(config: config, selectedConfig: $selectedConfig)) {
+                        HStack {
+                            if selectedConfig != nil &&
+                                selectedConfig?.servers != currentConfig?.servers {
+                                if selectedConfig?.servers == config.servers {
+                                   Image(systemName: "info.circle.fill")
+                                }
+                            } else if currentConfig?.servers == config.servers {
+                                Image(systemName: "checkmark")
+                            }
+                            Text(config.displayText)
                         }
                     }
+                    
                 }
-            }, label: {
-                Text("Button")
-            })
+                
+                if selectedConfig != nil {
+                    Text("Pending Update")
+                        .fontWeight(.light)
+                    Button(action: {
+                        applyDoH()
+                    }, label: {
+                        Text("Apply")
+                            .fontWeight(.semibold)
+                    })
+                }
+            }.padding(.bottom).navigationBarTitle("DoH Configuration")
         }
+    }
+    
+    func applyDoH() {
+        NEDNSSettingsManager.shared().loadFromPreferences { loadError in
+            guard let config = self.selectedConfig else {
+                // TODO
+                return
+            }
+            
+            if let loadError = loadError {
+                print(loadError)
+                return
+            }
+            let dohSettings = NEDNSOverHTTPSSettings(servers: config.servers)
+            dohSettings.serverURL = URL(string: config.serverURL)
+            
+            NEDNSSettingsManager.shared().dnsSettings = dohSettings
+            NEDNSSettingsManager.shared().saveToPreferences { saveError in
+                if let saveError = saveError {
+                    print(saveError)
+                    return
+                }
+            }
+        }
+        
+        print("ok")
+
+        currentConfig = selectedConfig
+        selectedConfig = nil
     }
 }
 
