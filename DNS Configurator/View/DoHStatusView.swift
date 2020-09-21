@@ -9,11 +9,11 @@ import SwiftUI
 import NetworkExtension
 
 struct DoHStatusView: View {
-    @State var dnsSettings: NEDNSOverHTTPSSettings?
+    @EnvironmentObject var dnsSettings: DNSSettings
 
     var body: some View {
         VStack {
-            if let dnsSettings = dnsSettings,
+            if let dnsSettings = dnsSettings.active,
                let servers = dnsSettings.servers,
                let serverURL = dnsSettings.serverURL
             {
@@ -22,27 +22,31 @@ struct DoHStatusView: View {
                 Text("Current Configuration")
                     .font(.headline)
                 DoHConfigView(config: config)
+            } else {
+                Text("No DNS server selected.")
             }
         }.onAppear(perform: {
           loadDoH()
-        })
+        }).onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            loadDoH()
+        }
     }
     
     func loadDoH() {
         NEDNSSettingsManager.shared().loadFromPreferences { loadError in
-
-            
             if let loadError = loadError {
                 print(loadError)
+                self.dnsSettings.active = nil
                 return
             }
 
             
             if let dnsSettings = NEDNSSettingsManager.shared().dnsSettings as? NEDNSOverHTTPSSettings {
-                self.dnsSettings = dnsSettings
-                
-                print("ok")
-                print(NEDNSSettingsManager.shared().isEnabled)
+
+                self.dnsSettings.active = dnsSettings
+                self.dnsSettings.resolverEnabled = NEDNSSettingsManager.shared().isEnabled
+            } else {
+                self.dnsSettings.active = nil
             }
         }
     }
@@ -50,7 +54,8 @@ struct DoHStatusView: View {
 
 
 struct DoHStatusView_Previews: PreviewProvider {
+    static let dnsSettings = DNSSettings()
     static var previews: some View {
-        DoHStatusView()
+        DoHStatusView().environmentObject(dnsSettings)
     }
 }

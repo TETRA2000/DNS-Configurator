@@ -11,6 +11,7 @@ import NetworkExtension
 struct DoHConfigDetailView: View {
     let config: DoHConfig
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var dnsSettings: DNSSettings
     
     var body: some View {
         VStack {
@@ -25,7 +26,7 @@ struct DoHConfigDetailView: View {
     }
     
     func applyDoH(config: DoHConfig) {
-        NEDNSSettingsManager.shared().loadFromPreferences { loadError in            
+        NEDNSSettingsManager.shared().loadFromPreferences { loadError in
             if let loadError = loadError {
                 print(loadError)
                 return
@@ -40,8 +41,8 @@ struct DoHConfigDetailView: View {
                     return
                 }
                 
-                print("ok")
-                print(NEDNSSettingsManager.shared().isEnabled)
+                dnsSettings.active = dohSettings
+                dnsSettings.resolverEnabled = NEDNSSettingsManager.shared().isEnabled
             }
         }
     }
@@ -49,8 +50,9 @@ struct DoHConfigDetailView: View {
 
 
 struct DoHConfigDetailView_Previews: PreviewProvider {
+    static let dnsSettings = DNSSettings()
     @State static var selectedConfig: DoHConfig?
     static var previews: some View {
-        DoHConfigDetailView(config: DoHConfig(servers:  [ "8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844" ], serverURL: "https://cloudflare-dns.com/dns-query", displayText: "Google Public DNS"))
+        DoHConfigDetailView(config: DoHConfig(servers:  [ "8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844" ], serverURL: "https://cloudflare-dns.com/dns-query", displayText: "Google Public DNS")).environmentObject(dnsSettings)
     }
 }

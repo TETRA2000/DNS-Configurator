@@ -9,6 +9,7 @@ import SwiftUI
 import NetworkExtension
 
 struct ContentView: View {
+    var dnsSettings = DNSSettings()
     var body: some View {
         TabView {
             DoHConfigListView()
@@ -16,12 +17,14 @@ struct ContentView: View {
                     Image(systemName: "list.dash")
                     Text("DNS Server")
                 }
+                .environmentObject(dnsSettings)
             
             DoHStatusView()
                 .tabItem {
                     Image(systemName: "waveform.path")
                     Text("Status")
                 }
+                .environmentObject(dnsSettings)
             
             OptionsView()
                 .tabItem {
