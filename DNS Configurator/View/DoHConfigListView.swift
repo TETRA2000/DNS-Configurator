@@ -21,7 +21,7 @@ struct DoHConfigListView: View {
         NavigationView {
             VStack{
                 List(self.configurations, id: \.servers) { config in
-                    NavigationLink(destination: DoHConfigView(config: config, selectedConfig: $selectedConfig)) {
+                    NavigationLink(destination: DoHConfigDetailView(config: config, selectedConfig: $selectedConfig)) {
                         HStack {
                             if selectedConfig != nil &&
                                 selectedConfig?.servers != currentConfig?.servers {
