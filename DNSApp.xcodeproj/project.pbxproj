@@ -15,11 +15,7 @@
 		A936589B2516F93300402DA5 /* DNS_ConfiguratorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A936589A2516F93300402DA5 /* DNS_ConfiguratorUITests.swift */; };
 		A93658AE2516F96600402DA5 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93658AD2516F96600402DA5 /* NetworkExtension.framework */; };
 		A9833DEE2517336700DA388F /* DoHConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9833DED2517336700DA388F /* DoHConfig.swift */; };
-		A9833DF9251735AC00DA388F /* DoHConfigDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9833DF8251735AC00DA388F /* DoHConfigDetailView.swift */; };
-		A9D0AEA92518740E001F3547 /* DoHConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0AEA82518740E001F3547 /* DoHConfigView.swift */; };
-		A9D0AEAE25188F7A001F3547 /* DoHStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0AEAD25188F7A001F3547 /* DoHStatusView.swift */; };
-		A9D0AEB725189F63001F3547 /* DNSSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0AEB625189F63001F3547 /* DNSSettings.swift */; };
-		A9D0AEBF2518A813001F3547 /* UsageModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0AEBE2518A813001F3547 /* UsageModalView.swift */; };
+		A9833DF9251735AC00DA388F /* DoHConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9833DF8251735AC00DA388F /* DoHConfigView.swift */; };
 		A9D5697825182EA1008C1E47 /* DoHConfigListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5697725182EA1008C1E47 /* DoHConfigListView.swift */; };
 		A9D56984251830D7008C1E47 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D56983251830D7008C1E47 /* OptionsView.swift */; };
 /* End PBXBuildFile section */
@@ -42,26 +38,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A936587A2516F93100402DA5 /* DNS Configurator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DNS Configurator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A936587A2516F93100402DA5 /* DNSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A936587D2516F93100402DA5 /* DNS_ConfiguratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNS_ConfiguratorApp.swift; sourceTree = "<group>"; };
 		A936587F2516F93100402DA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A93658812516F93300402DA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A93658842516F93300402DA5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A93658862516F93300402DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A936588B2516F93300402DA5 /* DNS ConfiguratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DNS ConfiguratorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A936588B2516F93300402DA5 /* DNSAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DNSAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A936588F2516F93300402DA5 /* DNS_ConfiguratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNS_ConfiguratorTests.swift; sourceTree = "<group>"; };
 		A93658912516F93300402DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A93658962516F93300402DA5 /* DNS ConfiguratorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DNS ConfiguratorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A93658962516F93300402DA5 /* DNSAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DNSAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A936589A2516F93300402DA5 /* DNS_ConfiguratorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNS_ConfiguratorUITests.swift; sourceTree = "<group>"; };
 		A936589C2516F93300402DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93658AB2516F96600402DA5 /* DNS Configurator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DNS Configurator.entitlements"; sourceTree = "<group>"; };
 		A93658AD2516F96600402DA5 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		A9833DED2517336700DA388F /* DoHConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoHConfig.swift; sourceTree = "<group>"; };
-		A9833DF8251735AC00DA388F /* DoHConfigDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoHConfigDetailView.swift; sourceTree = "<group>"; };
-		A9D0AEA82518740E001F3547 /* DoHConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoHConfigView.swift; sourceTree = "<group>"; };
-		A9D0AEAD25188F7A001F3547 /* DoHStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoHStatusView.swift; sourceTree = "<group>"; };
-		A9D0AEB625189F63001F3547 /* DNSSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSSettings.swift; sourceTree = "<group>"; };
-		A9D0AEBE2518A813001F3547 /* UsageModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageModalView.swift; sourceTree = "<group>"; };
+		A9833DF8251735AC00DA388F /* DoHConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoHConfigView.swift; sourceTree = "<group>"; };
 		A9D5697725182EA1008C1E47 /* DoHConfigListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoHConfigListView.swift; sourceTree = "<group>"; };
 		A9D56983251830D7008C1E47 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,9 +98,9 @@
 		A936587B2516F93100402DA5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A936587A2516F93100402DA5 /* DNS Configurator.app */,
-				A936588B2516F93300402DA5 /* DNS ConfiguratorTests.xctest */,
-				A93658962516F93300402DA5 /* DNS ConfiguratorUITests.xctest */,
+				A936587A2516F93100402DA5 /* DNSApp.app */,
+				A936588B2516F93300402DA5 /* DNSAppTests.xctest */,
+				A93658962516F93300402DA5 /* DNSAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				A9833DEC2517334900DA388F /* Model */,
-				A9D0AEB525189F35001F3547 /* Store */,
 				A9D5697F25182F4F008C1E47 /* View */,
 				A93658AB2516F96600402DA5 /* DNS Configurator.entitlements */,
 				A936587D2516F93100402DA5 /* DNS_ConfiguratorApp.swift */,
@@ -170,24 +161,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A9D0AEB525189F35001F3547 /* Store */ = {
-			isa = PBXGroup;
-			children = (
-				A9D0AEB625189F63001F3547 /* DNSSettings.swift */,
-			);
-			path = Store;
-			sourceTree = "<group>";
-		};
 		A9D5697F25182F4F008C1E47 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				A936587F2516F93100402DA5 /* ContentView.swift */,
-				A9D0AEA82518740E001F3547 /* DoHConfigView.swift */,
-				A9833DF8251735AC00DA388F /* DoHConfigDetailView.swift */,
 				A9D5697725182EA1008C1E47 /* DoHConfigListView.swift */,
-				A9D0AEAD25188F7A001F3547 /* DoHStatusView.swift */,
+				A9833DF8251735AC00DA388F /* DoHConfigView.swift */,
 				A9D56983251830D7008C1E47 /* OptionsView.swift */,
-				A9D0AEBE2518A813001F3547 /* UsageModalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,9 +175,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A93658792516F93100402DA5 /* DNS Configurator */ = {
+		A93658792516F93100402DA5 /* DNSApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A936589F2516F93300402DA5 /* Build configuration list for PBXNativeTarget "DNS Configurator" */;
+			buildConfigurationList = A936589F2516F93300402DA5 /* Build configuration list for PBXNativeTarget "DNSApp" */;
 			buildPhases = (
 				A93658762516F93100402DA5 /* Sources */,
 				A93658772516F93100402DA5 /* Frameworks */,
@@ -207,14 +187,14 @@
 			);
 			dependencies = (
 			);
-			name = "DNS Configurator";
+			name = DNSApp;
 			productName = "DNS Configurator";
-			productReference = A936587A2516F93100402DA5 /* DNS Configurator.app */;
+			productReference = A936587A2516F93100402DA5 /* DNSApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A936588A2516F93300402DA5 /* DNS ConfiguratorTests */ = {
+		A936588A2516F93300402DA5 /* DNSAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A93658A22516F93300402DA5 /* Build configuration list for PBXNativeTarget "DNS ConfiguratorTests" */;
+			buildConfigurationList = A93658A22516F93300402DA5 /* Build configuration list for PBXNativeTarget "DNSAppTests" */;
 			buildPhases = (
 				A93658872516F93300402DA5 /* Sources */,
 				A93658882516F93300402DA5 /* Frameworks */,
@@ -225,14 +205,14 @@
 			dependencies = (
 				A936588D2516F93300402DA5 /* PBXTargetDependency */,
 			);
-			name = "DNS ConfiguratorTests";
+			name = DNSAppTests;
 			productName = "DNS ConfiguratorTests";
-			productReference = A936588B2516F93300402DA5 /* DNS ConfiguratorTests.xctest */;
+			productReference = A936588B2516F93300402DA5 /* DNSAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A93658952516F93300402DA5 /* DNS ConfiguratorUITests */ = {
+		A93658952516F93300402DA5 /* DNSAppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A93658A52516F93300402DA5 /* Build configuration list for PBXNativeTarget "DNS ConfiguratorUITests" */;
+			buildConfigurationList = A93658A52516F93300402DA5 /* Build configuration list for PBXNativeTarget "DNSAppUITests" */;
 			buildPhases = (
 				A93658922516F93300402DA5 /* Sources */,
 				A93658932516F93300402DA5 /* Frameworks */,
@@ -243,9 +223,9 @@
 			dependencies = (
 				A93658982516F93300402DA5 /* PBXTargetDependency */,
 			);
-			name = "DNS ConfiguratorUITests";
+			name = DNSAppUITests;
 			productName = "DNS ConfiguratorUITests";
-			productReference = A93658962516F93300402DA5 /* DNS ConfiguratorUITests.xctest */;
+			productReference = A93658962516F93300402DA5 /* DNSAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -270,7 +250,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A93658752516F93100402DA5 /* Build configuration list for PBXProject "DNS Configurator" */;
+			buildConfigurationList = A93658752516F93100402DA5 /* Build configuration list for PBXProject "DNSApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -283,9 +263,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A93658792516F93100402DA5 /* DNS Configurator */,
-				A936588A2516F93300402DA5 /* DNS ConfiguratorTests */,
-				A93658952516F93300402DA5 /* DNS ConfiguratorUITests */,
+				A93658792516F93100402DA5 /* DNSApp */,
+				A936588A2516F93300402DA5 /* DNSAppTests */,
+				A93658952516F93300402DA5 /* DNSAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -321,15 +301,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9D0AEBF2518A813001F3547 /* UsageModalView.swift in Sources */,
-				A9D0AEAE25188F7A001F3547 /* DoHStatusView.swift in Sources */,
-				A9D0AEB725189F63001F3547 /* DNSSettings.swift in Sources */,
 				A93658802516F93100402DA5 /* ContentView.swift in Sources */,
 				A936587E2516F93100402DA5 /* DNS_ConfiguratorApp.swift in Sources */,
-				A9D0AEA92518740E001F3547 /* DoHConfigView.swift in Sources */,
 				A9D5697825182EA1008C1E47 /* DoHConfigListView.swift in Sources */,
 				A9D56984251830D7008C1E47 /* OptionsView.swift in Sources */,
-				A9833DF9251735AC00DA388F /* DoHConfigDetailView.swift in Sources */,
+				A9833DF9251735AC00DA388F /* DoHConfigView.swift in Sources */,
 				A9833DEE2517336700DA388F /* DoHConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,12 +331,12 @@
 /* Begin PBXTargetDependency section */
 		A936588D2516F93300402DA5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A93658792516F93100402DA5 /* DNS Configurator */;
+			target = A93658792516F93100402DA5 /* DNSApp */;
 			targetProxy = A936588C2516F93300402DA5 /* PBXContainerItemProxy */;
 		};
 		A93658982516F93300402DA5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A93658792516F93100402DA5 /* DNS Configurator */;
+			target = A93658792516F93100402DA5 /* DNSApp */;
 			targetProxy = A93658972516F93300402DA5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -489,7 +465,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "DNS Configurator/DNS Configurator.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"DNS Configurator/Preview Content\"";
 				DEVELOPMENT_TEAM = 788YH48Y3Q;
 				ENABLE_PREVIEWS = YES;
@@ -499,10 +474,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.tetra2000.DNS-Configurator";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.tetra2000.DNSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -513,7 +488,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "DNS Configurator/DNS Configurator.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"DNS Configurator/Preview Content\"";
 				DEVELOPMENT_TEAM = 788YH48Y3Q;
 				ENABLE_PREVIEWS = YES;
@@ -523,10 +497,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.tetra2000.DNS-Configurator";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.tetra2000.DNSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -548,7 +522,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DNS Configurator.app/DNS Configurator";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DNSApp.app/DNSApp";
 			};
 			name = Debug;
 		};
@@ -570,7 +544,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DNS Configurator.app/DNS Configurator";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DNSApp.app/DNSApp";
 			};
 			name = Release;
 		};
@@ -617,7 +591,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A93658752516F93100402DA5 /* Build configuration list for PBXProject "DNS Configurator" */ = {
+		A93658752516F93100402DA5 /* Build configuration list for PBXProject "DNSApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A936589D2516F93300402DA5 /* Debug */,
@@ -626,7 +600,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A936589F2516F93300402DA5 /* Build configuration list for PBXNativeTarget "DNS Configurator" */ = {
+		A936589F2516F93300402DA5 /* Build configuration list for PBXNativeTarget "DNSApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A93658A02516F93300402DA5 /* Debug */,
@@ -635,7 +609,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A93658A22516F93300402DA5 /* Build configuration list for PBXNativeTarget "DNS ConfiguratorTests" */ = {
+		A93658A22516F93300402DA5 /* Build configuration list for PBXNativeTarget "DNSAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A93658A32516F93300402DA5 /* Debug */,
@@ -644,7 +618,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A93658A52516F93300402DA5 /* Build configuration list for PBXNativeTarget "DNS ConfiguratorUITests" */ = {
+		A93658A52516F93300402DA5 /* Build configuration list for PBXNativeTarget "DNSAppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A93658A62516F93300402DA5 /* Debug */,
