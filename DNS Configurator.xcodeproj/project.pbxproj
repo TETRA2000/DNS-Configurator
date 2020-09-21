@@ -16,6 +16,8 @@
 		A93658AE2516F96600402DA5 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93658AD2516F96600402DA5 /* NetworkExtension.framework */; };
 		A9833DEE2517336700DA388F /* DoHConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9833DED2517336700DA388F /* DoHConfig.swift */; };
 		A9833DF9251735AC00DA388F /* DoHConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9833DF8251735AC00DA388F /* DoHConfigView.swift */; };
+		A9D5697825182EA1008C1E47 /* DoHConfigListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5697725182EA1008C1E47 /* DoHConfigListView.swift */; };
+		A9D56984251830D7008C1E47 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D56983251830D7008C1E47 /* OptionsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		A93658AD2516F96600402DA5 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		A9833DED2517336700DA388F /* DoHConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoHConfig.swift; sourceTree = "<group>"; };
 		A9833DF8251735AC00DA388F /* DoHConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoHConfigView.swift; sourceTree = "<group>"; };
+		A9D5697725182EA1008C1E47 /* DoHConfigListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoHConfigListView.swift; sourceTree = "<group>"; };
+		A9D56983251830D7008C1E47 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				A9833DEC2517334900DA388F /* Model */,
+				A9D5697F25182F4F008C1E47 /* View */,
 				A93658AB2516F96600402DA5 /* DNS Configurator.entitlements */,
 				A936587D2516F93100402DA5 /* DNS_ConfiguratorApp.swift */,
-				A936587F2516F93100402DA5 /* ContentView.swift */,
-				A9833DF8251735AC00DA388F /* DoHConfigView.swift */,
 				A93658812516F93300402DA5 /* Assets.xcassets */,
 				A93658862516F93300402DA5 /* Info.plist */,
 				A93658832516F93300402DA5 /* Preview Content */,
@@ -156,6 +159,17 @@
 				A9833DED2517336700DA388F /* DoHConfig.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A9D5697F25182F4F008C1E47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A936587F2516F93100402DA5 /* ContentView.swift */,
+				A9D5697725182EA1008C1E47 /* DoHConfigListView.swift */,
+				A9833DF8251735AC00DA388F /* DoHConfigView.swift */,
+				A9D56983251830D7008C1E47 /* OptionsView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +303,8 @@
 			files = (
 				A93658802516F93100402DA5 /* ContentView.swift in Sources */,
 				A936587E2516F93100402DA5 /* DNS_ConfiguratorApp.swift in Sources */,
+				A9D5697825182EA1008C1E47 /* DoHConfigListView.swift in Sources */,
+				A9D56984251830D7008C1E47 /* OptionsView.swift in Sources */,
 				A9833DF9251735AC00DA388F /* DoHConfigView.swift in Sources */,
 				A9833DEE2517336700DA388F /* DoHConfig.swift in Sources */,
 			);
