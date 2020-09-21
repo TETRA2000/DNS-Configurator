@@ -19,5 +19,6 @@ Simple DoH(DNS over HTTPS) configuration tool.
 
 ## Screen Shots
 
-<img src=".github/image1.png" alt="ScreenShot1" width="320"/>
-<img src=".github/image2.png" alt="ScreenShot2" width="320"/>
+<img align="left" src=".github/image1.PNG" alt="ScreenShot1" width="240"/>
+<img align="left" src=".github/image2.PNG" alt="ScreenShot2" width="240"/>
+<img align="left" src=".github/image3.PNG" alt="ScreenShot3" width="240"/>
