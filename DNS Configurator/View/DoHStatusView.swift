@@ -24,30 +24,12 @@ struct DoHStatusView: View {
                 DoHConfigView(config: config)
             } else {
                 Text("No DNS server selected.")
+                    .foregroundColor(Color.gray)
             }
         }.onAppear(perform: {
-          loadDoH()
+            dnsSettings.loadDoH()
         }).onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-            loadDoH()
-        }
-    }
-    
-    func loadDoH() {
-        NEDNSSettingsManager.shared().loadFromPreferences { loadError in
-            if let loadError = loadError {
-                print(loadError)
-                self.dnsSettings.active = nil
-                return
-            }
-
-            
-            if let dnsSettings = NEDNSSettingsManager.shared().dnsSettings as? NEDNSOverHTTPSSettings {
-
-                self.dnsSettings.active = dnsSettings
-                self.dnsSettings.resolverEnabled = NEDNSSettingsManager.shared().isEnabled
-            } else {
-                self.dnsSettings.active = nil
-            }
+            dnsSettings.loadDoH()
         }
     }
 }

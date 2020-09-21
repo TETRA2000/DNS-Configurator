@@ -14,7 +14,7 @@ struct DoHConfigListView: View {
         DoHConfig(servers:  [ "8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844" ], serverURL: "https://dns.google/dns-query", displayText: "Google Public DNS"),
     ]
     @EnvironmentObject var dnsSettings: DNSSettings
-    @State var resolverEnabled: Bool = false
+    @State var showingUsage = false
     
     var body: some View {
         NavigationView {
@@ -29,41 +29,27 @@ struct DoHConfigListView: View {
                     }
                 }
                 VStack(alignment: .leading){
-                    if dnsSettings.active != nil && !resolverEnabled {
+                    if dnsSettings.active != nil && !dnsSettings.resolverEnabled {
                         Text("Resolver is inactive.")
                             .fontWeight(.bold)
                             .foregroundColor(Color.red)
                             .padding(.top)
-                        Button(action: {}, label: {
+                        Button(action: {
+                            showingUsage.toggle()
+                        }, label: {
                             Text("How to activate?")
-                        })
+                        }).sheet(isPresented: $showingUsage) {
+                            UsageModalView(showingUsage: $showingUsage)
+                        }
                     } else if dnsSettings.active == nil {
                         Text("No resolver is selected.")
                     }
                 }.padding(.bottom)
             }.padding(.bottom).navigationBarTitle("DNS Server")
         }.onAppear(perform: {
-            loadDoH()
+            self.dnsSettings.loadDoH()
         }).onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-            loadDoH()
-        }
-    }
-    
-    func loadDoH() {
-        NEDNSSettingsManager.shared().loadFromPreferences { loadError in
-            if let loadError = loadError {
-                print(loadError)
-                self.dnsSettings.active = nil
-                return
-            }
-
-            
-            if let dnsSettings = NEDNSSettingsManager.shared().dnsSettings as? NEDNSOverHTTPSSettings {
-                self.dnsSettings.active = dnsSettings
-                self.resolverEnabled = NEDNSSettingsManager.shared().isEnabled
-            } else {
-                self.dnsSettings.active = nil
-            }
+            self.dnsSettings.loadDoH()
         }
     }
 }

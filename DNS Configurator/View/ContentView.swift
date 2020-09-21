@@ -31,6 +31,7 @@ struct ContentView: View {
                     Image(systemName: "gear")
                     Text("Options")
                 }
+                .environmentObject(dnsSettings)
         }
     }
 }

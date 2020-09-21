@@ -10,17 +10,25 @@ import NetworkExtension
 
 struct OptionsView: View {
     @State var showAlert = false
+    @EnvironmentObject var dnsSettings: DNSSettings
     
     var body: some View {
         VStack {
-            Button(action: {removeDoH()}) {
-                Text("Remove DNS resolver setting")
-                    .foregroundColor(Color.red)
-            }.alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text("Can't remove active config"),
-                    message: Text("Please select another DNS provider in Setting app.")
-                )
+            if (dnsSettings.active != nil) {
+                Button(action: {removeDoH()}) {
+                    Text("Remove DNS resolver setting")
+                        .foregroundColor(Color.red)
+                }
+                .disabled(dnsSettings.active == nil)
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("Can't remove active config"),
+                        message: Text("Please select another DNS provider in Setting app.")
+                    )
+                }
+            } else {
+                Text("No option available.")
+                    .foregroundColor(Color.gray)
             }
         }
     }
@@ -37,21 +45,15 @@ struct OptionsView: View {
                 return
             }
             
-            NEDNSSettingsManager.shared().removeFromPreferences(completionHandler: {
-                removeError in
-                // TODO
-                if let removeError = removeError {
-                    print(removeError.localizedDescription)
-                    return
-                }
-            })
+            dnsSettings.removeDoH()
         }
     }
 }
 
 
 struct OptionsView_Previews: PreviewProvider {
+    static let dnsSettings = DNSSettings()
     static var previews: some View {
-        OptionsView()
+        OptionsView().environmentObject(dnsSettings)
     }
 }

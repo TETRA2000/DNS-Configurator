@@ -19,6 +19,7 @@
 		A9D0AEA92518740E001F3547 /* DoHConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0AEA82518740E001F3547 /* DoHConfigView.swift */; };
 		A9D0AEAE25188F7A001F3547 /* DoHStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0AEAD25188F7A001F3547 /* DoHStatusView.swift */; };
 		A9D0AEB725189F63001F3547 /* DNSSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0AEB625189F63001F3547 /* DNSSettings.swift */; };
+		A9D0AEBF2518A813001F3547 /* UsageModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0AEBE2518A813001F3547 /* UsageModalView.swift */; };
 		A9D5697825182EA1008C1E47 /* DoHConfigListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5697725182EA1008C1E47 /* DoHConfigListView.swift */; };
 		A9D56984251830D7008C1E47 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D56983251830D7008C1E47 /* OptionsView.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		A9D0AEA82518740E001F3547 /* DoHConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoHConfigView.swift; sourceTree = "<group>"; };
 		A9D0AEAD25188F7A001F3547 /* DoHStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoHStatusView.swift; sourceTree = "<group>"; };
 		A9D0AEB625189F63001F3547 /* DNSSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSSettings.swift; sourceTree = "<group>"; };
+		A9D0AEBE2518A813001F3547 /* UsageModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageModalView.swift; sourceTree = "<group>"; };
 		A9D5697725182EA1008C1E47 /* DoHConfigListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoHConfigListView.swift; sourceTree = "<group>"; };
 		A9D56983251830D7008C1E47 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +187,7 @@
 				A9D5697725182EA1008C1E47 /* DoHConfigListView.swift */,
 				A9D0AEAD25188F7A001F3547 /* DoHStatusView.swift */,
 				A9D56983251830D7008C1E47 /* OptionsView.swift */,
+				A9D0AEBE2518A813001F3547 /* UsageModalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D0AEBF2518A813001F3547 /* UsageModalView.swift in Sources */,
 				A9D0AEAE25188F7A001F3547 /* DoHStatusView.swift in Sources */,
 				A9D0AEB725189F63001F3547 /* DNSSettings.swift in Sources */,
 				A93658802516F93100402DA5 /* ContentView.swift in Sources */,
@@ -498,7 +502,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.tetra2000.DNS-Configurator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -522,7 +526,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.tetra2000.DNS-Configurator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
