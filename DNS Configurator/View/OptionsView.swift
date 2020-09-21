@@ -22,7 +22,7 @@ struct OptionsView: View {
                 .disabled(dnsSettings.active == nil)
                 .alert(isPresented: $showAlert) {
                     Alert(
-                        title: Text("Can't remove active config"),
+                        title: Text("Can't remove active setting"),
                         message: Text("Please select another DNS provider in Setting app.")
                     )
                 }
