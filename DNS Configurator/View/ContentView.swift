@@ -14,12 +14,18 @@ struct ContentView: View {
             DoHConfigListView()
                 .tabItem {
                     Image(systemName: "list.dash")
-                    Text("DoH Config")
+                    Text("DNS Server")
+                }
+            
+            DoHStatusView()
+                .tabItem {
+                    Image(systemName: "waveform.path")
+                    Text("Status")
                 }
             
             OptionsView()
                 .tabItem {
-                    Image(systemName: "slider.horizontal.3")
+                    Image(systemName: "gear")
                     Text("Options")
                 }
         }
