@@ -19,7 +19,7 @@ struct DoHConfigListView: View {
     var body: some View {
         NavigationView {
             VStack{
-                Text("Select DNS server to use.")
+                Text("Select a DNS server to use.")
                     .font(.headline)
                     .padding(.top)
 
@@ -30,7 +30,7 @@ struct DoHConfigListView: View {
                 }
                 VStack(alignment: .leading){
                     if dnsSettings.active != nil && !dnsSettings.resolverEnabled {
-                        Text("Resolver is inactive.")
+                        Text("The resolver is inactive.")
                             .fontWeight(.bold)
                             .foregroundColor(Color.red)
                             .padding(.top)

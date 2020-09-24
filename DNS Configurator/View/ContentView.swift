@@ -28,8 +28,8 @@ struct ContentView: View {
             
             OptionsView()
                 .tabItem {
-                    Image(systemName: "gear")
-                    Text("Options")
+                    Image(systemName: "wrench.fill")
+                    Text("Extras")
                 }
                 .environmentObject(dnsSettings)
         }
