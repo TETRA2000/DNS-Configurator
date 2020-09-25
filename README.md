@@ -1,5 +1,7 @@
 # DNS Configurator
 
+ [![Alt text](.github/Download_on_the_App_Store_Badge.svg)](https://apps.apple.com/jp/app/dns-configurator/id1532682460?l=en)
+
 ## About
 
 Simple DoH(DNS over HTTPS) configuration tool.
