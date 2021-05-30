@@ -9,29 +9,46 @@ import SwiftUI
 import NetworkExtension
 
 struct ContentView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var dnsSettings = DNSSettings()
     var body: some View {
-        TabView {
-            DoHConfigListView()
-                .tabItem {
-                    Image(systemName: "list.dash")
-                    Text("DNS Server")
+        if horizontalSizeClass == .compact {
+            TabView {
+                DoHConfigListView()
+                    .tabItem {
+                        Image(systemName: "list.dash")
+                        Text("DNS Server")
+                    }
+                    .environmentObject(dnsSettings)
+
+                DoHStatusView()
+                    .tabItem {
+                        Image(systemName: "waveform.path")
+                        Text("Status")
+                    }
+                    .environmentObject(dnsSettings)
+
+                OptionsView()
+                    .tabItem {
+                        Image(systemName: "wrench.fill")
+                        Text("Extras")
+                    }
+                    .environmentObject(dnsSettings)
+            }
+        } else {
+            NavigationView {
+                List() {
+                    NavigationLink(destination: DoHConfigListView().environmentObject(dnsSettings)) {
+                        Text("DNS Server")
+                    }
+                    NavigationLink(destination: DoHStatusView().environmentObject(dnsSettings)) {
+                        Text("Status")
+                    }
+                    NavigationLink(destination: OptionsView().environmentObject(dnsSettings)) {
+                        Text("Extras")
+                    }
                 }
-                .environmentObject(dnsSettings)
-            
-            DoHStatusView()
-                .tabItem {
-                    Image(systemName: "waveform.path")
-                    Text("Status")
-                }
-                .environmentObject(dnsSettings)
-            
-            OptionsView()
-                .tabItem {
-                    Image(systemName: "wrench.fill")
-                    Text("Extras")
-                }
-                .environmentObject(dnsSettings)
+            }.navigationBarHidden(false)
         }
     }
 }
