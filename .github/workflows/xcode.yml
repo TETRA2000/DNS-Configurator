@@ -1,0 +1,20 @@
+name: Swift
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: xcodebuild CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -scheme "DNS Configurator" build
+    # TODO: Enable when macos-11 become available
+    # - name: Run tests
+    #   run: xcodebuild CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -scheme "DNS Configurator" test
