@@ -39,12 +39,15 @@ struct ContentView: View {
             NavigationView {
                 List() {
                     NavigationLink(destination: DoHConfigListView().environmentObject(dnsSettings)) {
+                        Image(systemName: "list.dash")
                         Text("DNS Server")
                     }
                     NavigationLink(destination: DoHStatusView().environmentObject(dnsSettings)) {
+                        Image(systemName: "waveform.path")
                         Text("Status")
                     }
                     NavigationLink(destination: OptionsView().environmentObject(dnsSettings)) {
+                        Image(systemName: "wrench.fill")
                         Text("Extras")
                     }
                 }
