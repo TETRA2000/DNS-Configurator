@@ -45,7 +45,13 @@ struct DoHConfigListView: View {
                     Text("No resolver is selected.")
                 }
             }.padding(.bottom)
-        }.padding(.bottom).navigationBarTitle("DNS Server")
+        }.padding(.bottom).navigationBarTitle("DNS Server").toolbar {
+            Button {
+                // TODO
+            } label: {
+                Image(systemName: "plus")
+            }
+        }
 
         if horizontalSizeClass == .compact {
             NavigationView {
