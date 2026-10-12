@@ -10,7 +10,6 @@ import NetworkExtension
 
 struct DoHStatusView: View {
     @EnvironmentObject var dnsSettings: DNSSettings
-    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         VStack {
@@ -26,14 +25,6 @@ struct DoHStatusView: View {
             } else {
                 Text("No DNS server selected.")
                     .foregroundColor(.gray)
-            }
-        }
-        .onAppear {
-            dnsSettings.loadDoH()
-        }
-        .onChange(of: scenePhase) { newPhase in
-            if newPhase == .active {
-                dnsSettings.loadDoH()
             }
         }
     }

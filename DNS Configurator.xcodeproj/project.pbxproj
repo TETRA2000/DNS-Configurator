@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A92817912B2F38D9000E0670 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A92817902B2F38D9000E0670 /* PrivacyInfo.xcprivacy */; };
 		A936587E2516F93100402DA5 /* DNS_ConfiguratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A936587D2516F93100402DA5 /* DNS_ConfiguratorApp.swift */; };
 		A93658802516F93100402DA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A936587F2516F93100402DA5 /* ContentView.swift */; };
 		A93658822516F93300402DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93658812516F93300402DA5 /* Assets.xcassets */; };
@@ -299,6 +300,7 @@
 			files = (
 				A93658852516F93300402DA5 /* Preview Assets.xcassets in Resources */,
 				A93658822516F93300402DA5 /* Assets.xcassets in Resources */,
+				A92817912B2F38D9000E0670 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -474,7 +476,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -496,7 +498,7 @@
 				DEVELOPMENT_TEAM = 788YH48Y3Q;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "DNS Configurator/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -522,7 +524,7 @@
 				DEVELOPMENT_TEAM = 788YH48Y3Q;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "DNS Configurator/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -544,7 +546,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 788YH48Y3Q;
 				INFOPLIST_FILE = "DNS ConfiguratorTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -552,6 +554,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.tetra2000.DNS-ConfiguratorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DNS Configurator.app/DNS Configurator";
@@ -566,7 +569,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 788YH48Y3Q;
 				INFOPLIST_FILE = "DNS ConfiguratorTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -574,6 +577,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.tetra2000.DNS-ConfiguratorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DNS Configurator.app/DNS Configurator";

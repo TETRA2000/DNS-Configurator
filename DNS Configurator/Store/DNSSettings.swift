@@ -17,39 +17,48 @@ class DNSSettings: ObservableObject {
         }
     }
     @Published var resolverEnabled: Bool = false
-    
-    func loadDoH() {
-        NEDNSSettingsManager.shared().loadFromPreferences { [weak self] loadError in
-            if let loadError = loadError {
-                print(loadError)
-                Task { @MainActor in
-                    self?.active = nil
-                }
-                return
-            }
-            
-            Task { @MainActor in
-                if let dnsSettings = NEDNSSettingsManager.shared().dnsSettings as? NEDNSOverHTTPSSettings {
-                    self?.active = dnsSettings
-                    self?.resolverEnabled = NEDNSSettingsManager.shared().isEnabled
-                } else {
-                    self?.active = nil
-                }
-            }
+
+    private var manager: NEDNSSettingsManager { NEDNSSettingsManager.shared() }
+
+    // The async NetworkExtension APIs resume on the main actor, so state is
+    // only ever mutated from the main thread.
+    func loadDoH() async {
+        do {
+            try await manager.loadFromPreferences()
+        } catch {
+            print(error)
+            active = nil
+            return
+        }
+
+        if let dnsSettings = manager.dnsSettings as? NEDNSOverHTTPSSettings {
+            active = dnsSettings
+            resolverEnabled = manager.isEnabled
+        } else {
+            active = nil
         }
     }
-    
-    func removeDoH() {
-        NEDNSSettingsManager.shared().removeFromPreferences { [weak self] removeError in
-            if let removeError = removeError {
-                print(removeError.localizedDescription)
-                return
-            }
-            
-            Task { @MainActor in
-                self?.active = nil
-            }
+
+    func applyDoH(config: DoHConfig) async {
+        do {
+            try await manager.loadFromPreferences()
+            let dohSettings = config.makeSettings()
+            manager.dnsSettings = dohSettings
+            try await manager.saveToPreferences()
+            active = dohSettings
+            resolverEnabled = manager.isEnabled
+        } catch {
+            print(error.localizedDescription)
         }
     }
-    
+
+    func removeDoH() async {
+        do {
+            try await manager.removeFromPreferences()
+            active = nil
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
 }

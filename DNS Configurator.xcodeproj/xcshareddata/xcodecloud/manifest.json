@@ -1,0 +1,9 @@
+{
+  "id" : "b4bed1dd-4984-42f2-8c1d-943c7a0cf3ec",
+  "targets" : [
+    {
+      "id" : "155DF302-6B65-40E4-AE55-A4F13AA0607C",
+      "name" : "DNS Configurator"
+    }
+  ]
+}

@@ -10,9 +10,34 @@ import NetworkExtension
 
 struct ContentView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.scenePhase) private var scenePhase
     @StateObject private var dnsSettings = DNSSettings()
+    @State private var wasInBackground = false
     
     var body: some View {
+        Group {
+            layout
+        }
+        .onAppear {
+            Task { await dnsSettings.loadDoH() }
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            // Reload only when returning from the background (e.g. after changing
+            // the resolver in Settings), not on every inactive -> active transition.
+            switch newPhase {
+            case .background:
+                wasInBackground = true
+            case .active where wasInBackground:
+                wasInBackground = false
+                Task { await dnsSettings.loadDoH() }
+            default:
+                break
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var layout: some View {
         if horizontalSizeClass == .compact {
             TabView {
                 DoHConfigListView()
