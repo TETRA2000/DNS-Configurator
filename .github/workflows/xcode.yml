@@ -41,7 +41,23 @@ jobs:
         xcodebuild \
           -scheme "$SCHEME" \
           -destination "$DESTINATION" \
+          -only-testing:"DNS ConfiguratorTests" \
           CODE_SIGN_IDENTITY="-" \
           CODE_SIGNING_REQUIRED=NO \
+          CODE_SIGNING_ALLOWED=NO \
+          test
+
+    # An unsigned UI test runner is killed on macOS, so UI tests run on an iOS simulator.
+    - name: Run UI Tests
+      run: |
+        UDID=$(xcrun simctl list devices available --json | python3 -c '
+        import json, sys
+        devices = json.load(sys.stdin)["devices"]
+        print(next(d["udid"] for runtime in devices if "iOS" in runtime for d in devices[runtime] if d["name"].startswith("iPhone")))
+        ')
+        xcodebuild \
+          -scheme "$SCHEME" \
+          -destination "platform=iOS Simulator,id=$UDID" \
+          -only-testing:"DNS ConfiguratorUITests" \
           CODE_SIGNING_ALLOWED=NO \
           test

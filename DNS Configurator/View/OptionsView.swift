@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
-import NetworkExtension
 
 struct OptionsView: View {
-    @State private var showAlert = false
-    @State private var showRemovalConfirmation = false
-    @State private var showActiveAlert = false
+    private enum RemovalAlert: Identifiable {
+        case activeSetting
+        case confirmRemoval
+
+        var id: Self { self }
+    }
+
+    @State private var removalAlert: RemovalAlert?
     @EnvironmentObject var dnsSettings: DNSSettings
     @Environment(\.openURL) private var openURL
     
@@ -26,26 +30,22 @@ struct OptionsView: View {
                             Text("Remove the resolver setting")
                                 .foregroundColor(.red)
                         }
-                        .alert(isPresented: $showAlert) {
-                            if showActiveAlert {
+                        .alert(item: $removalAlert) { alert in
+                            switch alert {
+                            case .activeSetting:
                                 return Alert(
                                     title: Text("Can't remove active setting"),
                                     message: Text("Please select another DNS provider in Setting app."),
-                                    dismissButton: .default(Text("OK")) {
-                                        showActiveAlert = false
-                                    }
+                                    dismissButton: .default(Text("OK"))
                                 )
-                            } else {
+                            case .confirmRemoval:
                                 return Alert(
                                     title: Text("Confirmation"),
                                     message: Text("Are you sure to remove the resolver setting?"),
                                     primaryButton: .destructive(Text("Remove")) {
-                                        dnsSettings.removeDoH()
-                                        showRemovalConfirmation = false
+                                        Task { await dnsSettings.removeDoH() }
                                     },
-                                    secondaryButton: .cancel {
-                                        showRemovalConfirmation = false
-                                    }
+                                    secondaryButton: .cancel()
                                 )
                             }
                         }
@@ -67,21 +67,11 @@ struct OptionsView: View {
     }
 
     func validateToRemoveDoH() {
-        NEDNSSettingsManager.shared().loadFromPreferences { loadError in
-            if let loadError = loadError {
-                print(loadError)
-                return
-            }
-            
-            Task { @MainActor in
-                let isEnabled = NEDNSSettingsManager.shared().isEnabled
-                if isEnabled {
-                    showActiveAlert = true
-                } else {
-                    showRemovalConfirmation = true
-                }
-                showAlert = true
-            }
+        Task {
+            // Refresh first so the decision uses the current enabled state from Settings.
+            await dnsSettings.loadDoH()
+            guard dnsSettings.active != nil else { return }
+            removalAlert = dnsSettings.resolverEnabled ? .activeSetting : .confirmRemoval
         }
     }
 }
