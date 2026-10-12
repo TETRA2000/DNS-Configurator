@@ -8,14 +8,33 @@
 import SwiftUI
 
 struct OptionsView: View {
-    private enum RemovalAlert: Identifiable {
+    private enum RemovalAlert {
         case activeSetting
         case confirmRemoval
 
-        var id: Self { self }
+        var title: LocalizedStringKey {
+            switch self {
+            case .activeSetting: return "Can't remove active setting"
+            case .confirmRemoval: return "Confirmation"
+            }
+        }
+
+        var message: LocalizedStringKey {
+            switch self {
+            case .activeSetting: return "Please select another DNS provider in Setting app."
+            case .confirmRemoval: return "Are you sure to remove the resolver setting?"
+            }
+        }
     }
 
     @State private var removalAlert: RemovalAlert?
+
+    private var isShowingRemovalAlert: Binding<Bool> {
+        Binding(
+            get: { removalAlert != nil },
+            set: { if !$0 { removalAlert = nil } }
+        )
+    }
     @EnvironmentObject var dnsSettings: DNSSettings
     @Environment(\.openURL) private var openURL
     
@@ -30,24 +49,22 @@ struct OptionsView: View {
                             Text("Remove the resolver setting")
                                 .foregroundColor(.red)
                         }
-                        .alert(item: $removalAlert) { alert in
+                        .alert(
+                            removalAlert?.title ?? "",
+                            isPresented: isShowingRemovalAlert,
+                            presenting: removalAlert
+                        ) { alert in
                             switch alert {
                             case .activeSetting:
-                                return Alert(
-                                    title: Text("Can't remove active setting"),
-                                    message: Text("Please select another DNS provider in Setting app."),
-                                    dismissButton: .default(Text("OK"))
-                                )
+                                Button("OK", role: .cancel) {}
                             case .confirmRemoval:
-                                return Alert(
-                                    title: Text("Confirmation"),
-                                    message: Text("Are you sure to remove the resolver setting?"),
-                                    primaryButton: .destructive(Text("Remove")) {
-                                        Task { await dnsSettings.removeDoH() }
-                                    },
-                                    secondaryButton: .cancel()
-                                )
+                                Button("Remove", role: .destructive) {
+                                    Task { await dnsSettings.removeDoH() }
+                                }
+                                Button("Cancel", role: .cancel) {}
                             }
+                        } message: { alert in
+                            Text(alert.message)
                         }
                     } else {
                         Text("No options available.")
